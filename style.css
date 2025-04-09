@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-image: url('purple.jpeg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Comic Sans MS', cursive; 
+}
+
+.title1 {
+    font-family: 'Poppins', sans-serif;
+    font-size:large;
+
+}
+
+.geeks {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(242, 67, 128);
+}
+
+canvas {
+    background-color: lightpink; /* O cualquier otro color */
+    display: block;
+    margin: auto;
+}
