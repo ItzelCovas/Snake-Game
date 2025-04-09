@@ -18,9 +18,6 @@ let foodY;
 
 let gameOver = false;
 
-let appleImg= new Image();
-appleImg.src = 'apple.svg';
-
 window.onload = function () {
     // Set board height and width
     board = document.getElementById("board");
@@ -41,22 +38,16 @@ function update() {
     }
 
     // Background of a Game
-    // context.fillStyle = "pink";
-    // context.fillRect(0, 0, board.width, board.height);
-
     for (let row = 0; row < total_row; row++) {
         for (let col = 0; col < total_col; col++) {
             if ((row + col) % 2 === 0) {
-                context.fillStyle = "#f8c5d1"; // rosa clarito
+                context.fillStyle = "#f8c5d1"; //rosa clarito
             } else {
-                context.fillStyle = "#f4a0b6"; // rosa más fuerte
+                context.fillStyle = "#f4a0b6"; //rosa más fuerte
             }
             context.fillRect(col * blockSize, row * blockSize, blockSize, blockSize);
         }
     }
-    
-
-    //context.drawImage(appleImg, foodX, foodY, blockSize, blockSize)
 
     context.fillStyle = "red";
     context.beginPath();
@@ -68,7 +59,6 @@ function update() {
     context.beginPath();
     context.arc(foodX + blockSize / 2, foodY + blockSize / 2, blockSize / 2, 0, Math.PI * 2);
     context.fill();
-    //context.fillRect(foodX, foodY, blockSize, blockSize);
 
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
@@ -87,15 +77,8 @@ function update() {
     context.fillStyle = "olive";
     snakeX += speedX * blockSize; //updating Snake position in X coordinate.
     snakeY += speedY * blockSize;  //updating Snake position in Y coordinate.
-    //context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    //for (let i = 0; i < snakeBody.length; i++) {
-      //  context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    //}
 
-    ///////////////////
     // Dibuja cabeza de la serpiente como círculo
-
-
 let headGradient = context.createRadialGradient(
     snakeX + blockSize / 2, snakeY + blockSize / 2, blockSize / 10,
     snakeX + blockSize / 2, snakeY + blockSize / 2, blockSize / 2
@@ -115,7 +98,7 @@ for (let i = 0; i < snakeBody.length; i++) {
     let centerX = snakeBody[i][0] + blockSize / 2;
     let centerY = snakeBody[i][1] + blockSize / 2;
 
-    // Crea un degradado radial (círculo con brillo)
+    //degradado radial (círculo con brillo)
     let gradient = context.createRadialGradient(
         centerX, centerY, blockSize / 10,   // centro, radio interno
         centerX, centerY, blockSize / 2     // centro, radio externo
@@ -134,8 +117,6 @@ for (let i = 0; i < snakeBody.length; i++) {
     context.fillStyle = gradient;
     context.fill();
 }
-
-/////////////////
 
     if (snakeX < 0 
         || snakeX > total_col * blockSize 
